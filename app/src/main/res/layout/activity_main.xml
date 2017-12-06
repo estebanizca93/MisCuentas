@@ -6,12 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.grupo4.esteban.miscuentas.MainActivity">
 
-    <!--<LinearLayout
-        android:id="@+id/midTableLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">-->
-
     <Button
         android:id="@+id/miscuentas"
         style="@style/Widget.AppCompat.Button.Colored"
@@ -42,17 +36,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/miscuentas" />
 
-    <Button
-        android:id="@+id/modificar"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_light"
-        android:text="Modificar Cuentas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ingresos" />
 
     <Button
         android:id="@+id/ingresos"
@@ -61,9 +44,8 @@
         android:layout_height="0dp"
         android:background="@android:color/holo_green_light"
         android:text="Introducir Ingreso"
-        app:layout_constraintBottom_toTopOf="@+id/modificar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gastos" />
-    <!--</LinearLayout>-->
 </android.support.constraint.ConstraintLayout>

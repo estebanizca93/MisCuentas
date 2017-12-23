@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Mis Cuentas</string>
+    <string name="boton_miscuentas">Listar Cuentas</string>
+    <string name="boton_gastos">Introducir Gastos</string>
+    <string name="boton_ingresos">Introducir Ingresos</string>
+</resources>

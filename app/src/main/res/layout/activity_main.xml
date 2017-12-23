@@ -1,51 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.grupo4.esteban.miscuentas.MainActivity">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/miscuentas"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_centerHorizontal="true"
-        android:background="@android:color/holo_blue_light"
-        android:text="Mis Cuentas"
-        app:layout_constraintBottom_toTopOf="@+id/gastos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+    <fragment
+        android:id="@+id/fragment_main"
+        android:name="com.grupo4.esteban.miscuentas.MainFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-    <Button
-        android:id="@+id/gastos"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_alignLeft="@+id/miscuentas"
-        android:layout_below="@+id/miscuentas"
-        android:background="@android:color/holo_red_dark"
-        android:text="Introducir Gasto"
-        app:layout_constraintBottom_toTopOf="@+id/ingresos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/miscuentas" />
-
-
-    <Button
-        android:id="@+id/ingresos"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@android:color/holo_green_light"
-        android:text="Introducir Ingreso"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gastos" />
-</android.support.constraint.ConstraintLayout>
+</FrameLayout>

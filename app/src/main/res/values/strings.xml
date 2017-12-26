@@ -3,4 +3,7 @@
     <string name="button_myaccounts">List Accounts</string>
     <string name="button_expenses">Enter Expenses</string>
     <string name="button_deposits">Enter Deposits</string>
+    <string name="action_settings">Settings</string>
+    <string name="total_expenses">Total Expenses</string>
+    <string name="login">Login</string>
 </resources>

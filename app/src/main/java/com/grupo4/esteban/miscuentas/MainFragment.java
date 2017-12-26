@@ -1,7 +1,9 @@
 package com.grupo4.esteban.miscuentas;
 
 import android.app.Fragment;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +17,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     Button buttonMyAccounts;
     Button buttonSpend;
     Button buttonDeposit;
+    SharedPreferences prefs;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_main, container, false);
@@ -23,6 +26,8 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         buttonMyAccounts = (Button) view.findViewById(R.id.ButtonMyAccounts);
         buttonSpend = (Button) view.findViewById(R.id.ButtonExpenses);
         buttonDeposit = (Button) view.findViewById(R.id.ButtonDeposits);
+
+        prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
         buttonMyAccounts.setOnClickListener(this);
         buttonSpend.setOnClickListener(this);

@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.security.Timestamp;
 import java.text.SimpleDateFormat;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Insertar en la base de datos
         values.clear();
-        /*
+
         SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm dd-MM-yyyy", Locale.getDefault());
         Date date = new Date();
         String fecha = dateFormat.format(date);
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         values.put(MyAccountsContract.Column.VALUE, 10000);
         values.put(MyAccountsContract.Column.CREATED_AT, fecha);
         Uri uri = getContentResolver().insert(MyAccountsContract.CONTENT_URI, values);
-        */
+
 
 // Cerrar la base de datos
         db.close();
@@ -70,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.action_login:
 
+                return true;
+            case R.id.action_purge:
+                int rows = getContentResolver().delete(MyAccountsContract.CONTENT_URI,null, null);
+                    Toast.makeText(this, rows+" filas de la base de datos borradas", Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return false;

@@ -1,6 +1,7 @@
 package com.grupo4.esteban.miscuentas;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -29,7 +30,14 @@ public class MainFragment extends Fragment implements View.OnClickListener{
 
         prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
-        buttonMyAccounts.setOnClickListener(this);
+        buttonMyAccounts.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent MyAccounts = new Intent(v.getContext(), MyAccountsActivity.class);
+                startActivityForResult(MyAccounts, 0);
+            }
+        });
         buttonSpend.setOnClickListener(this);
         buttonDeposit.setOnClickListener(this);
 

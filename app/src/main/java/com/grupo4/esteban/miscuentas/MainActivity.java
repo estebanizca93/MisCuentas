@@ -1,16 +1,25 @@
 package com.grupo4.esteban.miscuentas;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.security.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        DbHelper dbHelper;
+        SQLiteDatabase db;
 
 // Comprobad si la actividad ya ha sido creada con anterioridad
         if (savedInstanceState == null) {
@@ -21,7 +30,26 @@ public class MainActivity extends AppCompatActivity {
                     .add(android.R.id.content, fragment, fragment.getClass().getSimpleName())
                     .commit();
         }
+        //Creación de la Base de Datos
+        dbHelper = new DbHelper(this);
+        db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        // Insertar en la base de datos
+        values.clear();
+        /*SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm dd-MM-yyyy", Locale.getDefault());
+        Date date = new Date();
+        String fecha = dateFormat.format(date);
+        values.put(MyAccountsContract.Column.CONCEPT, "concepto prueba");
+        values.put(MyAccountsContract.Column.KIND, "tipo prueba");
+        values.put(MyAccountsContract.Column.VALUE, 10000);
+        values.put(MyAccountsContract.Column.CREATED_AT, fecha);
+        db.insertWithOnConflict(MyAccountsContract.TABLE, null, values, SQLiteDatabase.CONFLICT_IGNORE);
+*/
+// Cerrar la base de datos
+        db.close();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
             getMenuInflater().inflate(R.menu.menu, menu);

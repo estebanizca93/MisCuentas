@@ -1,5 +1,6 @@
 package com.grupo4.esteban.miscuentas;
 
+import android.net.Uri;
 import android.provider.BaseColumns;
 
 /**
@@ -7,11 +8,17 @@ import android.provider.BaseColumns;
  */
 
 public class MyAccountsContract {
+    //Base de datos
     public static final String DB_NAME = "myaccounts.db";
     public static final int DB_VERSION = 1;
     public static final String TABLE = "myaccounts";
-
     public static final String DEFAULT_SORT = Column.CREATED_AT + " DESC";
+
+    // Constantes del content provider
+    public static final String AUTHORITY = "com.grupo4.esteban.miscuentas.MyAccountsProvider";
+    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + TABLE);
+    public static final int STATUS_ITEM = 1;
+    public static final int STATUS_DIR = 2;
 
     public class Column {
         public static final String ID = BaseColumns._ID;

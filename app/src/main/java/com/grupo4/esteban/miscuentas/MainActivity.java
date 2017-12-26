@@ -3,6 +3,7 @@ package com.grupo4.esteban.miscuentas;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -37,15 +38,17 @@ public class MainActivity extends AppCompatActivity {
 
         // Insertar en la base de datos
         values.clear();
-        /*SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm dd-MM-yyyy", Locale.getDefault());
+        /*
+        SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm dd-MM-yyyy", Locale.getDefault());
         Date date = new Date();
         String fecha = dateFormat.format(date);
         values.put(MyAccountsContract.Column.CONCEPT, "concepto prueba");
         values.put(MyAccountsContract.Column.KIND, "tipo prueba");
         values.put(MyAccountsContract.Column.VALUE, 10000);
         values.put(MyAccountsContract.Column.CREATED_AT, fecha);
-        db.insertWithOnConflict(MyAccountsContract.TABLE, null, values, SQLiteDatabase.CONFLICT_IGNORE);
-*/
+        Uri uri = getContentResolver().insert(MyAccountsContract.CONTENT_URI, values);
+        */
+
 // Cerrar la base de datos
         db.close();
     }

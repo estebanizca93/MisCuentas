@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,6 +23,9 @@
         </activity>
         <activity android:name=".SettingsActivity" >
         </activity>
+        <provider
+            android:name="com.grupo4.esteban.miscuentas.MyAccountsProvider"
+            android:authorities="com.grupo4.esteban.miscuentas.MyAccountsProvider" />
     </application>
 
 </manifest>

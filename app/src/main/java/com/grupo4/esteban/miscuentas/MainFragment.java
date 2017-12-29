@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +37,14 @@ public class MainFragment extends Fragment implements View.OnClickListener{
                 startActivityForResult(MyAccounts, 0);
             }
         });
-        buttonSpend.setOnClickListener(this);
+        buttonSpend.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent Spend = new Intent(v.getContext(), ExpensesActivity.class);
+                startActivityForResult(Spend, 0);
+            }
+        });
         buttonDeposit.setOnClickListener(this);
 
         return view;

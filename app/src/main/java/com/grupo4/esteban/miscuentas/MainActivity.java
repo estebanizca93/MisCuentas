@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         ContentValues values = new ContentValues();
 
         // Insertar en la base de datos
-        values.clear();
+        /*values.clear();
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm dd-MM-yyyy", Locale.getDefault());
         Date date = new Date();
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         values.put(MyAccountsContract.Column.KIND, "tipo prueba");
         values.put(MyAccountsContract.Column.VALUE, 10000);
         values.put(MyAccountsContract.Column.CREATED_AT, fecha);
-        Uri uri = getContentResolver().insert(MyAccountsContract.CONTENT_URI, values);
+        Uri uri = getContentResolver().insert(MyAccountsContract.CONTENT_URI, values);*/
 
 
 // Cerrar la base de datos

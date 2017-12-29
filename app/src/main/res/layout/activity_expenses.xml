@@ -4,8 +4,8 @@
     android:layout_height="match_parent">
 
     <fragment
-        android:id="@+id/fragment_myaccounts"
-        android:name="com.grupo4.esteban.miscuentas.MyAccountsFragment"
+        android:id="@+id/fragment_expenses"
+        android:name="com.grupo4.esteban.miscuentas.ExpensesFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

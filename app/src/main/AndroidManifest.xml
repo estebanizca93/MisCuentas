@@ -25,6 +25,8 @@
         </activity>
     <activity android:name=".MyAccountsActivity" >
     </activity>
+        <activity android:name=".ExpensesActivity" >
+        </activity>
         <provider
             android:name="com.grupo4.esteban.miscuentas.MyAccountsProvider"
             android:authorities="com.grupo4.esteban.miscuentas.MyAccountsProvider" />

@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,12 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingsActivity" >
-        </activity>
-    <activity android:name=".MyAccountsActivity" >
-    </activity>
-        <activity android:name=".ExpensesActivity" >
-        </activity>
+        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".MyAccountsActivity"></activity>
+        <activity android:name=".ExpensesActivity"></activity>
+        <activity android:name=".DepositsActivity"></activity>
+
         <provider
             android:name="com.grupo4.esteban.miscuentas.MyAccountsProvider"
             android:authorities="com.grupo4.esteban.miscuentas.MyAccountsProvider" />

@@ -45,7 +45,14 @@ public class MainFragment extends Fragment implements View.OnClickListener{
                 startActivityForResult(Spend, 0);
             }
         });
-        buttonDeposit.setOnClickListener(this);
+        buttonDeposit.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent Deposit = new Intent(v.getContext(), DepositsActivity.class);
+                startActivityForResult(Deposit, 0);
+            }
+        });
 
         return view;
     }

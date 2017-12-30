@@ -6,14 +6,9 @@ import android.content.CursorLoader;
 import android.content.Loader;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
@@ -37,6 +32,8 @@ public class MyAccountsFragment extends ListFragment implements LoaderManager.Lo
     private static final String[] FROM = {MyAccountsContract.Column.CONCEPT, MyAccountsContract.Column.KIND, MyAccountsContract.Column.VALUE, MyAccountsContract.Column.CREATED_AT};
     private static final int[] TO = {R.id.list_item_text_concept, R.id.list_item_text_kind, R.id.list_item_text_value, R.id.list_item_text_created_at};
     private SimpleCursorAdapter mAdapter;
+
+
 
     private static final int LOADER_ID = 42;
 

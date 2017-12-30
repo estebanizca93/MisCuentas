@@ -1,10 +1,7 @@
 package com.grupo4.esteban.miscuentas;
 
 import android.app.Fragment;
-import android.content.ContentValues;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -15,24 +12,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 /**
- * Created by Esteban on 29/12/2017.
+ * Created by Esteban on 30/12/2017.
  */
 
-public class ExpensesFragment extends Fragment implements View.OnClickListener{
+public class DepositsFragment extends Fragment implements View.OnClickListener{
 
-    private static final String TAG = "ExpensesActivity";
+    private static final String TAG = "DepositsActivity";
     Button buttonRegister;
     EditText txtConcept;
     EditText numValue;
     SharedPreferences prefs;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_expenses, container, false);
+        View view = inflater.inflate(R.layout.fragment_deposits, container, false);
 
 
         //Vistas
@@ -49,10 +42,10 @@ public class ExpensesFragment extends Fragment implements View.OnClickListener{
                 String concept = txtConcept.getText().toString();
                 String value = numValue.getText().toString();
                 double numValueDouble = Double.parseDouble(value);
-                ((ExpensesActivity)getActivity()).setTxtConcept(concept);
-                ((ExpensesActivity)getActivity()).setNumValue(numValueDouble);
-                ((ExpensesActivity)getActivity()).insertRegister();
-                Toast.makeText(ExpensesFragment.this.getActivity(), "Exito", Toast.LENGTH_LONG).show();
+                ((DepositsActivity)getActivity()).setTxtConcept(concept);
+                ((DepositsActivity)getActivity()).setNumValue(numValueDouble);
+                ((DepositsActivity)getActivity()).insertRegister();
+                Toast.makeText(DepositsFragment.this.getActivity(), "Exito", Toast.LENGTH_LONG).show();
 
             }
         });
@@ -65,5 +58,3 @@ public class ExpensesFragment extends Fragment implements View.OnClickListener{
         Log.d(TAG, "onClicked");
     }
 }
-
-

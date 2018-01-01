@@ -12,6 +12,7 @@ public class MyAccountsActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
 // Check whether this activity was created before
         if (savedInstanceState == null) {
 // Create a fragment

@@ -64,6 +64,7 @@ public class ExpensesFragment extends Fragment implements View.OnClickListener{
     public void onClick(View view) {
         Log.d(TAG, "onClicked");
     }
+
 }
 
 

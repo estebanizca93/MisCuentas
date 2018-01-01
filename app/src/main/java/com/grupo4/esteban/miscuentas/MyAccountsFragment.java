@@ -2,6 +2,7 @@ package com.grupo4.esteban.miscuentas;
 
 import android.app.ListFragment;
 import android.app.LoaderManager;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Loader;
 import android.content.SharedPreferences;
@@ -71,6 +72,7 @@ public class MyAccountsFragment extends ListFragment implements LoaderManager.Lo
                 Log.d(TAG, "onCreateLoader");
         return new CursorLoader(getActivity(), MyAccountsContract.CONTENT_URI, null, null, null, MyAccountsContract.DEFAULT_SORT);
     }
+
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {

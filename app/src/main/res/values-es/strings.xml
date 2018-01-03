@@ -1,6 +1,19 @@
 <resources>
     <string name="app_name">Mis Cuentas</string>
-    <string name="boton_miscuentas">Listar Cuentas</string>
-    <string name="boton_gastos">Introducir Gastos</string>
-    <string name="boton_ingresos">Introducir Ingresos</string>
+    <string name="button_myaccounts">Lista Mis Cuentas</string>
+    <string name="button_expenses">Introducir Gastos</string>
+    <string name="button_deposits">Introducir Ingresos</string>
+    <string name="action_settings">Configuración</string>
+    <string name="total_expenses">Gastos Totales</string>
+    <string name="login">Login</string>
+    <string name="purge">Borrar Todas MisCuentas</string>
+    <string name="button_register_spend">Registrar Gasto</string>
+    <string name="button_register_deposit">Registrar Ingreso</string>
+    <string name="spend">Gasto</string>
+    <string name="deposit">Ingreso</string>
+    <string name="allExpenses">Gastos Totales:</string>
+    <string name="errorAllExpenses">ERROR: Falló el cálculo de gastos</string>
+    <string name="succesDeposit">Ingreso registrado</string>
+    <string name="succesSpend">Gasto registrado</string>
+    <string name="dbErase">registros eliminados</string>
 </resources>

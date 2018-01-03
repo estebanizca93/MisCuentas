@@ -7,5 +7,13 @@
     <string name="total_expenses">Total Expenses</string>
     <string name="login">Login</string>
     <string name="purge">Delete All MyAccounts</string>
-    <string name="button_register">Register</string>
+    <string name="button_register_spend">Register Spend</string>
+    <string name="button_register_deposit">Register Deposit</string>
+    <string name="spend">Spend</string>
+    <string name="deposit">Deposit</string>
+    <string name="allExpenses">Total Expenses:</string>
+    <string name="errorAllExpenses">ERROR: Calculate expenses fail</string>
+    <string name="succesDeposit">Deposit registered</string>
+    <string name="succesSpend">Spend registered</string>
+    <string name="dbErase">records deleted</string>
 </resources>

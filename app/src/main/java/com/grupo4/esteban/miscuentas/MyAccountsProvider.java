@@ -28,7 +28,7 @@ public class MyAccountsProvider extends ContentProvider {
         sURIMatcher.addURI(MyAccountsContract.AUTHORITY, MyAccountsContract.TABLE + "/#", MyAccountsContract.STATUS_ITEM);
     }
 
-
+    //Método que se ejecuta al crear el ContentProvider
     @Override
     public boolean onCreate() {
         dbHelper = new DbHelper(getContext());
@@ -36,6 +36,7 @@ public class MyAccountsProvider extends ContentProvider {
         return true;
     }
 
+    //Método que se utiliza para hacer consultas (querys) a la base de datos y devuelve un objeto de tipo Cursor con los registros de la consulta.
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
@@ -68,6 +69,7 @@ public class MyAccountsProvider extends ContentProvider {
         return cursor;
     }
 
+    //Método que devuelve un String con el tipo de dato.
     @Nullable
     @Override
     public String getType(@NonNull Uri uri) {
@@ -81,12 +83,13 @@ public class MyAccountsProvider extends ContentProvider {
         }
     }
 
+    //Método que se utiliza para insertar registros en la base de datos.
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
         Uri ret = null;
 
-// Nos aseguramos de que la URI es correcta
+        // Nos aseguramos de que la URI es correcta
         if (sURIMatcher.match(uri) != MyAccountsContract.STATUS_DIR) {
             throw new IllegalArgumentException("uri incorrecta: " + uri);
         }
@@ -94,16 +97,17 @@ public class MyAccountsProvider extends ContentProvider {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         long rowId = db.insertWithOnConflict(MyAccountsContract.TABLE, null, values, SQLiteDatabase.CONFLICT_IGNORE);
 
-// Se inserto correctamente?
+        // Se inserto correctamente?
         if (rowId != -1) {
             Log.d(TAG, "uri insertada con id: " + values.getAsLong(MyAccountsContract.Column.ID));
 
-// Notificar que los datos para la URI han cambiado
+            // Notificar que los datos para la URI han cambiado
             getContext().getContentResolver().notifyChange(uri, null);
         }
         return ret;
     }
 
+    //Método utilizado para borrar registros de la base de datos.
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
         String where;
@@ -133,6 +137,7 @@ public class MyAccountsProvider extends ContentProvider {
         return ret;
     }
 
+    //Método utilizado para actulizar (modificar) registros ya existentes de la base de datos.
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
         String where;

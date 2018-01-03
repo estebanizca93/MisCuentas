@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <fragment
-        android:id="@+id/fragment_myaccounts"
+    <ListView
+        android:id="@+id/list_item"
         android:name="com.grupo4.esteban.miscuentas.MyAccountsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

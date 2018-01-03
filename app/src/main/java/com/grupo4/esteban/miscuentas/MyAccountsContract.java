@@ -20,6 +20,7 @@ public class MyAccountsContract {
     public static final int STATUS_ITEM = 1;
     public static final int STATUS_DIR = 2;
 
+    //Se definen las columnas(atributos) de la entidad de la base de datos.
     public class Column {
         public static final String ID = BaseColumns._ID;
         public static final String CONCEPT = "concept";

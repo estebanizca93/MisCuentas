@@ -18,7 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MainFragment extends Fragment implements View.OnClickListener{
+public class MainFragment extends Fragment implements View.OnClickListener {
 
     private static final String TAG = "MainActivity";
     Button buttonMyAccounts;
@@ -26,8 +26,9 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     Button buttonDeposit;
     SharedPreferences prefs;
 
+    //Se crea la vista inflando el fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         //Vistas
         buttonMyAccounts = (Button) view.findViewById(R.id.ButtonMyAccounts);
@@ -39,7 +40,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         buttonMyAccounts.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //Acciones que se llevan a cabo al pulsar el botón.
                 Intent MyAccounts = new Intent(v.getContext(), MyAccountsActivity.class);
                 startActivityForResult(MyAccounts, 0);
             }
@@ -47,7 +48,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         buttonSpend.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //Acciones que se llevan a cabo al pulsar el botón.
                 Intent Spend = new Intent(v.getContext(), ExpensesActivity.class);
                 startActivityForResult(Spend, 0);
             }
@@ -55,7 +56,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         buttonDeposit.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //Acciones que se llevan a cabo al pulsar el botón.
                 Intent Deposit = new Intent(v.getContext(), DepositsActivity.class);
                 startActivityForResult(Deposit, 0);
             }
@@ -63,12 +64,6 @@ public class MainFragment extends Fragment implements View.OnClickListener{
 
         return view;
     }
-
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    public void calcularGastos(){
-            //new CalculateExpenses();
-    }
-
 
 
     @Override

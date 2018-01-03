@@ -34,12 +34,12 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(sql);
     }
 
-    // Llamado siempre que tengamos una nueva version!
+    // Llamado siempre que tengamos una nueva version
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-// Aqui irían las sentencias del tipo ALTER TABLE, de momento lo hacemos mas sencillo:
+
         db.execSQL("drop table if exists " + MyAccountsContract.TABLE); // borra la vieja base de datos
-        onCreate(db); // crea una base de datos nueva!
+        onCreate(db); // crea una base de datos nueva
         Log.d(TAG, "onUpgrade");
     }
 }

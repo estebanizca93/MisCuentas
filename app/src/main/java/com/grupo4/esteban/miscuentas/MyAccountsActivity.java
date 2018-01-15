@@ -1,9 +1,7 @@
 package com.grupo4.esteban.miscuentas;
 
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
 
 /**
  * Created by Esteban on 26/12/2017.

@@ -2,9 +2,7 @@ package com.grupo4.esteban.miscuentas;
 
 import android.app.Fragment;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +21,6 @@ public class DepositsFragment extends Fragment implements View.OnClickListener{
     Button buttonRegister;
     EditText txtConcept;
     EditText numValue;
-    SharedPreferences prefs;
 
     //Se crea la vista inflando el fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,8 +30,6 @@ public class DepositsFragment extends Fragment implements View.OnClickListener{
         txtConcept = (EditText)view.findViewById(R.id.editTextCocept);
         numValue = (EditText)view.findViewById(R.id.editTextValue);
         buttonRegister = (Button) view.findViewById(R.id.buttonRegister);
-
-        prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
 

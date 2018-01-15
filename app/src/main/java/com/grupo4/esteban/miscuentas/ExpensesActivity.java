@@ -1,12 +1,10 @@
 package com.grupo4.esteban.miscuentas;
 
-import android.app.FragmentManager;
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.EditText;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -59,5 +57,25 @@ public class ExpensesActivity extends AppCompatActivity {
         values.put(MyAccountsContract.Column.VALUE, numValue);
         values.put(MyAccountsContract.Column.CREATED_AT, fecha);
         Uri uri = getContentResolver().insert(MyAccountsContract.CONTENT_URI, values);
+    }
+
+    //Método que calcula los gastos totales de todos los registros de la base datos y los devuelve una variable de tipo Double.
+    public double getAllExpenses(){
+        Double result = 0.0; //Se inicializa la variable
+        String selection = "kind = ?"; //Se define la sentencia SQL, donde se selecciona la columna kind de la BD.
+        String [] selectionArgs = new String[]{getResources().getString(R.string.spend)}; //Se seleccionan los registros en los cuales coincida el tipo gasto o spend dependiendo del idioma.
+        Cursor c = getContentResolver().query(MyAccountsContract.CONTENT_URI,null,selection ,selectionArgs,MyAccountsContract.DEFAULT_SORT);//Se crea un objeto Cursor que devuela los registros que cumplen la consulta.
+
+        if (c != null){ //Si el Cusor no es nulo porque devuelve algun registro de la consulta, se llevan a cabo las siguientes acciones
+            c.moveToFirst(); //Nos movemos al primer registro.
+            Double aux = c.getDouble(c.getColumnIndex("value")); //Se recoge el dato de la columna valor de dicho registro en una variable auxiliar.
+            result = result + aux; //Se suma a la variable result el valor de la variable aux.
+            while(c.moveToNext()) { //Se crea un bucle while que va pasando al siguiente registro del Cursor hasta que no queden más registros.
+                aux = c.getDouble(c.getColumnIndex("value")); //Se recoge el dato de la columna valor de dicho registro en una variable auxiliar.
+                result = result + aux; //Se suma a la variable result el valor de la variable aux.
+            }
+        }
+
+        return result;
     }
 }

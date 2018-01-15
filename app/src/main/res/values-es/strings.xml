@@ -16,4 +16,7 @@
     <string name="succesDeposit">Ingreso registrado</string>
     <string name="succesSpend">Gasto registrado</string>
     <string name="dbErase">registros eliminados</string>
-</resources>
+    <string name="summaryLimit">Escriba el límite de gastos para que se le notifique en caso de sobrepasarlo.(Por defecto 10.000)</string>
+    <string name="titleLimit">Límite de gastos</string>
+    <string name="limitExceeded">Límite de gastos sobrepasado</string>
+    </resources>

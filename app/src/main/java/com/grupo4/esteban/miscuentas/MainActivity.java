@@ -1,11 +1,15 @@
 package com.grupo4.esteban.miscuentas;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -64,15 +68,32 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-            case R.id.action_login:{
-                return true;
-            }
-
-
             case R.id.action_purge: { //Se llama al ContentResolver del ContentProvider que ejecuta la función delete, eliminando todos los registros de la BD.
-                int rows = getContentResolver().delete(MyAccountsContract.CONTENT_URI, null, null);
+                //Se muestra un cuadro de diálogo para confirmar la eliminación de la BBDD
+                AlertDialog.Builder builder;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    builder = new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+                } else {
+                    builder = new AlertDialog.Builder(MainActivity.this);
+                }
+                builder.setTitle(getResources().getString(R.string.dbEraseConfirmTitle))
+                        .setMessage(getResources().getString(R.string.dbEraseConfirmMSG))
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        })
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                int rows = getContentResolver().delete(MyAccountsContract.CONTENT_URI, null, null);
+                                Toast.makeText(MainActivity.this, rows + " " + getResources().getString(R.string.dbErase), Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
                 //Se muestra un mensaje por pantlla de éxito de eliminación de los registros de la BD.
-                Toast.makeText(this, rows + " " + getResources().getString(R.string.dbErase), Toast.LENGTH_LONG).show();
                 return true;
             }
             default:
@@ -131,7 +152,25 @@ public class MainActivity extends AppCompatActivity {
         // Accion al completar el cálculo de los gastos
             progress.dismiss();
             super.onPostExecute(result); //Se recoge la varibale result con el String devuelto por la función doInBackground.
-            Snackbar.make(parentLayout, result,Snackbar.LENGTH_LONG).show(); //Se muestra un mensaje de tipo Snackbar con el String de result.
+            AlertDialog.Builder builder;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                builder = new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+            } else {
+                builder = new AlertDialog.Builder(MainActivity.this);
+            }
+            builder.setTitle(getResources().getString(R.string.titleAllExpenses))
+                    .setMessage(result)
+                    .setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_info)
+                    .show();
+
+
+            //Snackbar.make(parentLayout, result,Snackbar.LENGTH_LONG).show(); //Se muestra un mensaje de tipo Snackbar con el String de result.
         }
     }
 }

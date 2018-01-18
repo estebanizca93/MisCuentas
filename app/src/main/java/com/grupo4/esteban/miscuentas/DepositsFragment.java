@@ -28,7 +28,7 @@ public class DepositsFragment extends Fragment implements View.OnClickListener{
         View view = inflater.inflate(R.layout.fragment_deposits, container, false);
 
         //Vistas
-        txtConcept = (EditText)view.findViewById(R.id.editTextCocept);
+        txtConcept = (EditText)view.findViewById(R.id.editTextConcept);
         numValue = (EditText)view.findViewById(R.id.editTextValue);
         buttonRegister = (Button) view.findViewById(R.id.buttonRegister);
 

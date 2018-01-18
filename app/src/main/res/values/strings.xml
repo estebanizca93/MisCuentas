@@ -22,4 +22,6 @@
     <string name="dbEraseConfirmMSG">Are you sure you want to delete the data?</string>
     <string name="dbEraseConfirmTitle">Delete My Accounts</string>
     <string name="titleAllExpenses">Total Expenses</string>
+    <string name="concept">Concept:</string>
+    <string name="value">Quantity:</string>
 </resources>

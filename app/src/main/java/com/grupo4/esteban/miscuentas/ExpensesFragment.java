@@ -37,7 +37,7 @@ public class ExpensesFragment extends Fragment implements View.OnClickListener {
         prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
         //Vistas
-        txtConcept = (EditText) view.findViewById(R.id.editTextCocept);
+        txtConcept = (EditText) view.findViewById(R.id.editTextConcept);
         numValue = (EditText) view.findViewById(R.id.editTextValue);
         buttonRegister = (Button) view.findViewById(R.id.buttonRegister);
 
@@ -51,6 +51,7 @@ public class ExpensesFragment extends Fragment implements View.OnClickListener {
                 double numValueDouble = Double.parseDouble(value);
                 String spendLimitS = prefs.getString("expensesLimit", "10000");
                 double spendLimit = Double.parseDouble(spendLimitS);
+                Log.d(TAG, "LIMITE:" + spendLimitS.toString());
                 //float spendLimit = prefs.getFloat("expensesLimit", 10000);
 
                 //Funciones
@@ -63,7 +64,7 @@ public class ExpensesFragment extends Fragment implements View.OnClickListener {
                 //Se muestra un mensaje de éxito si el registro se ha llevado a cabo correctamente
                 Toast.makeText(ExpensesFragment.this.getActivity(), getResources().getString(R.string.succesSpend), Toast.LENGTH_LONG).show();
                 //Sentencia IF para mostrar un cuadro de diálogo si se sobrepasado el límite establecido en las preferencias compartidas.
-                if (((ExpensesActivity) getActivity()).getAllExpenses() > spendLimit) {
+                if (((ExpensesActivity) getActivity()).getAllExpenses() >= spendLimit) {
                     AlertDialog.Builder builder;
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         builder = new AlertDialog.Builder(getActivity(), android.R.style.Theme_Material_Dialog_Alert);

@@ -30,12 +30,10 @@ public class MyAccountsFragment extends ListFragment implements LoaderManager.Lo
 
         setEmptyText("Sin datos..."); //Mensaje que se muestra si no hay datos en la base de datos.
         mAdapter = new SimpleCursorAdapter(getActivity(), R.layout.fragment_myaccounts, null, FROM, TO, 0);
-
-        //TextView mTextView = (TextView) getActivity().findViewById(R.id.list_item_text_kind);
         setListAdapter(mAdapter);
-        getLoaderManager().initLoader(LOADER_ID, null, this);
-        //onLayaoutFinish(, mTextView);
         mAdapter.setViewBinder(new MyAccountsViewBinder());
+        getLoaderManager().initLoader(LOADER_ID, null, this);
+
     }
 
     //Método que se ejecuta cuendo se crea el Loader. Devuelve un CursorLoader con todos los registros de la base de datos.
@@ -53,12 +51,11 @@ public class MyAccountsFragment extends ListFragment implements LoaderManager.Lo
 
         Log.d(TAG, "onLoadFinished with cursor: " + data.getCount());
         mAdapter.swapCursor(data);
-        //onLayaoutFinish(data);
 
     }
 
     //Método que pretende repintar la interfaz, poniendo el texto de "tipo" ingreso en color verde y el de gasto en rojo.(No funciona).
-    public void onLayaoutFinish(Cursor data, TextView mTextView) {
+    /*public void onLayaoutFinish(Cursor data, TextView mTextView) {
 
         if (data != null) {
             data.moveToFirst();
@@ -83,7 +80,7 @@ public class MyAccountsFragment extends ListFragment implements LoaderManager.Lo
         }
         else
             Log.d(TAG, "DATA VACIA");
-    }
+    }*/
 
 
     @Override

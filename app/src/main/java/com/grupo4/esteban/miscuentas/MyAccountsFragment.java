@@ -22,6 +22,7 @@ public class MyAccountsFragment extends ListFragment implements LoaderManager.Lo
     private SimpleCursorAdapter mAdapter;
     private static final int LOADER_ID = 42;
 
+
     //Método que se ejecuta cuando se crea la activity.
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -29,9 +30,12 @@ public class MyAccountsFragment extends ListFragment implements LoaderManager.Lo
 
         setEmptyText("Sin datos..."); //Mensaje que se muestra si no hay datos en la base de datos.
         mAdapter = new SimpleCursorAdapter(getActivity(), R.layout.fragment_myaccounts, null, FROM, TO, 0);
+
+        //TextView mTextView = (TextView) getActivity().findViewById(R.id.list_item_text_kind);
         setListAdapter(mAdapter);
         getLoaderManager().initLoader(LOADER_ID, null, this);
-
+        //onLayaoutFinish(, mTextView);
+        mAdapter.setViewBinder(new MyAccountsViewBinder());
     }
 
     //Método que se ejecuta cuendo se crea el Loader. Devuelve un CursorLoader con todos los registros de la base de datos.
@@ -54,14 +58,13 @@ public class MyAccountsFragment extends ListFragment implements LoaderManager.Lo
     }
 
     //Método que pretende repintar la interfaz, poniendo el texto de "tipo" ingreso en color verde y el de gasto en rojo.(No funciona).
-    public void onLayaoutFinish(Cursor data) {
-        TextView mTextView = null;
+    public void onLayaoutFinish(Cursor data, TextView mTextView) {
 
         if (data != null) {
             data.moveToFirst();
             String aux = data.getString(data.getColumnIndex("kind"));
             for (int i = 0; i < data.getCount(); i++) {
-                mTextView = getView().findViewById(R.id.list_item_text_kind);
+                //TextView mTextView = (TextView) getActivity().findViewById(R.id.list_item_text_kind);
                 Log.d(TAG, "TextViewID: " + mTextView);
                 Log.d(TAG, "AUX " + aux);
                 if (aux.equals("spend"))
@@ -78,6 +81,8 @@ public class MyAccountsFragment extends ListFragment implements LoaderManager.Lo
                 }
             }
         }
+        else
+            Log.d(TAG, "DATA VACIA");
     }
 
 

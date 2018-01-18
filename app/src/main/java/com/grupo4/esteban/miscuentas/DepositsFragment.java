@@ -3,6 +3,7 @@ package com.grupo4.esteban.miscuentas;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +47,7 @@ public class DepositsFragment extends Fragment implements View.OnClickListener{
                 //Una vez "Seteados los datos" se llama a la función insertRegister del activity que insertará de forma correcta los datos en la BBDD.
                 ((DepositsActivity)getActivity()).insertRegister();
                 //Se muestra un mensaje de éxito si el registro se ha llevado a cabo correctamente
-                Toast.makeText(DepositsFragment.this.getActivity(), getResources().getString(R.string.succesDeposit), Toast.LENGTH_LONG).show();
+                Snackbar.make(DepositsFragment.this.getView(), getResources().getString(R.string.succesDeposit), Snackbar.LENGTH_LONG).show();
                 //Se lanza automáticamente de nuevo el activity al menú principal de la aplicación, que en este caso es MainActivity.
                 Intent MainActivity = new Intent(v.getContext(), MainActivity.class);
                 startActivityForResult(MainActivity, 0);

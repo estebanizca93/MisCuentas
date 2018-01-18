@@ -57,6 +57,7 @@ public class ExpensesActivity extends AppCompatActivity {
         values.put(MyAccountsContract.Column.VALUE, numValue);
         values.put(MyAccountsContract.Column.CREATED_AT, fecha);
         Uri uri = getContentResolver().insert(MyAccountsContract.CONTENT_URI, values);
+
     }
 
     //Método que calcula los gastos totales de todos los registros de la base datos y los devuelve una variable de tipo Double.

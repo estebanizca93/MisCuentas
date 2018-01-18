@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,7 +61,7 @@ public class ExpensesFragment extends Fragment implements View.OnClickListener {
                 //Una vez "Seteados los datos" se llama a la función insertRegister del activity que insertará de forma correcta los datos en la BBDD.
                 ((ExpensesActivity) getActivity()).insertRegister();
                 //Se muestra un mensaje de éxito si el registro se ha llevado a cabo correctamente
-                Toast.makeText(ExpensesFragment.this.getActivity(), getResources().getString(R.string.succesSpend), Toast.LENGTH_LONG).show();
+                Snackbar.make(ExpensesFragment.this.getView(), getResources().getString(R.string.succesSpend), Snackbar.LENGTH_LONG).show();
                 //Sentencia IF para mostrar un cuadro de diálogo si se sobrepasado el límite establecido en las preferencias compartidas.
                 if (((ExpensesActivity) getActivity()).getAllExpenses() > spendLimit) {
                     AlertDialog.Builder builder;

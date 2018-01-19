@@ -28,7 +28,7 @@ public class MyAccountsFragment extends ListFragment implements LoaderManager.Lo
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        setEmptyText("Sin datos..."); //Mensaje que se muestra si no hay datos en la base de datos.
+        setEmptyText(getResources().getString(R.string.emptyList)); //Mensaje que se muestra si no hay datos en la base de datos.
         mAdapter = new SimpleCursorAdapter(getActivity(), R.layout.fragment_myaccounts, null, FROM, TO, 0);
         setListAdapter(mAdapter);
         mAdapter.setViewBinder(new MyAccountsViewBinder());
@@ -53,34 +53,6 @@ public class MyAccountsFragment extends ListFragment implements LoaderManager.Lo
         mAdapter.swapCursor(data);
 
     }
-
-    //Método que pretende repintar la interfaz, poniendo el texto de "tipo" ingreso en color verde y el de gasto en rojo.(No funciona).
-    /*public void onLayaoutFinish(Cursor data, TextView mTextView) {
-
-        if (data != null) {
-            data.moveToFirst();
-            String aux = data.getString(data.getColumnIndex("kind"));
-            for (int i = 0; i < data.getCount(); i++) {
-                //TextView mTextView = (TextView) getActivity().findViewById(R.id.list_item_text_kind);
-                Log.d(TAG, "TextViewID: " + mTextView);
-                Log.d(TAG, "AUX " + aux);
-                if (aux.equals("spend"))
-                    mTextView.setTextColor(Color.RED);
-                else
-                    mTextView.setTextColor(Color.GREEN);
-                while (data.moveToNext()) {
-                    aux = data.getString(data.getColumnIndex("kind"));
-                    Log.d(TAG, "AUX" + aux);
-                    if (aux.equals("spend"))
-                        mTextView.setTextColor(Color.RED);
-                    else
-                        mTextView.setTextColor(Color.GREEN);
-                }
-            }
-        }
-        else
-            Log.d(TAG, "DATA VACIA");
-    }*/
 
 
     @Override

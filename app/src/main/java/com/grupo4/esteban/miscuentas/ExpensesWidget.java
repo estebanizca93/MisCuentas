@@ -16,10 +16,12 @@ import java.util.Locale;
 
 public class ExpensesWidget extends AppWidgetProvider {
 
+    //Método que se ejecuta al actulizar el widget, que se define dicho tiempo de actulización en el XML de WidgetProvider.
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         final int count = appWidgetIds.length;
 
+        //Sentencia for para aplicar el metodo onUpdate en todos los Widgets que se utilicen en el homescreen.
         for (int i = 0; i < count; i++) {
             int widgetId = appWidgetIds[i];
             Double result = 0.0;
@@ -37,10 +39,12 @@ public class ExpensesWidget extends AppWidgetProvider {
                     result = result + aux; //Se suma a la variable result el valor de la variable aux.
                 }
             }
+            //Variable y sentencia if para cambiar el símbolo según el idioma del disppsitivo.
             String simbolo = "$";
             if (Locale.getDefault().getLanguage() == "es")
                 simbolo = "€";
 
+            //Definición de la variable que contiene la cadena que se va a mostrar en el Widget.
             String number = context.getResources().getString(R.string.allExpenses) + result.toString() + simbolo;
 
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.expenses_widget);
@@ -49,7 +53,7 @@ public class ExpensesWidget extends AppWidgetProvider {
             Intent intent = new Intent(context, ExpensesWidget.class);
             intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             appWidgetManager.updateAppWidget(widgetId, remoteViews);
 
 

@@ -30,13 +30,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DbHelper dbHelper;
         SQLiteDatabase db;
 
+        //Funciones para "dibujar" la barra de herramientas y la barra principal de la APP
         setContentView(R.layout.drawer_layout);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Funciones para implementar la barra de navegación lateral
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+    //Función que captura la apertura y cierre de la barra de navegación lateral.
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        //Inflae el menú.
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
@@ -139,6 +141,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // Accion al completar el cálculo de los gastos
             progress.dismiss();
             super.onPostExecute(result); //Se recoge la varibale result con el String devuelto por la función doInBackground.
+            //Implementación del cuadro de diálogo que se mostrará los gastos totales cuando se termine la ejeucción del cálculo.
             AlertDialog.Builder builder;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 builder = new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_Material_Dialog_Alert);
@@ -155,19 +158,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     })
                     .setIcon(android.R.drawable.ic_dialog_info)
                     .show();
-
-
-            //Snackbar.make(parentLayout, result,Snackbar.LENGTH_LONG).show(); //Se muestra un mensaje de tipo Snackbar con el String de result.
         }
     }
 
+    //Implementación de la función encargada de capturar las opciones de la barra de navegación lateral.
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_allexpenses) {
+            //Se ejecuta el Asyntask CalculateExpenses que calculará los gastos totales acumulados.
             new MainActivity.CalculateExpenses().execute();
         } else if (id == R.id.nav_purge) {
             //Se muestra un cuadro de diálogo para confirmar la eliminación de la BBDD
@@ -196,7 +197,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .show();
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

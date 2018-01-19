@@ -22,6 +22,7 @@ public class DepositsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Funciones para "dibujar" la barra de herramientas y la barra principal de la APP
         setContentView(R.layout.drawer_layout);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

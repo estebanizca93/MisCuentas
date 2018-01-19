@@ -25,4 +25,5 @@
     <string name="value">Cantidad:</string>
     <string name="widgetTitle">Últimos Movimientos</string>
     <string name="createdBy">Desarrollada por Esteban Izquierdo</string>
+    <string name="emptyList">No hay datos...</string>
     </resources>

@@ -29,22 +29,14 @@
             android:name=".MyAccountsProvider"
             android:authorities="com.grupo4.esteban.miscuentas.MyAccountsProvider"/>
 
-        <receiver android:name=".MiWidget" android:label="Mi Primer Widget">
+        <receiver android:name=".ExpensesWidget" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="com.grupo4.esteban.miscuentas.ACTUALIZAR_WIDGET"/>
-            </intent-filter>
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/miwidget_wprovider" />
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/expenseswidget_provider" />
         </receiver>
-        <activity android:name=".WidgetConfig">
-            <intent-filter>
-                <action android:name="android.apwidget.action.APPWIDGET_CONFIGURE" />
-            </intent-filter>
-        </activity>
+
     </application>
 
 </manifest>

@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -21,6 +23,9 @@ public class ExpensesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.drawer_layout);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         // Comprueba si la actividad ya ha sido creada con anterioridad
         if (savedInstanceState == null) {
@@ -28,7 +33,7 @@ public class ExpensesActivity extends AppCompatActivity {
             ExpensesFragment fragment = new ExpensesFragment();
             getFragmentManager()
                     .beginTransaction()
-                    .add(android.R.id.content, fragment, fragment.getClass().getSimpleName())
+                    .add(R.id.content_main2, fragment, fragment.getClass().getSimpleName())
                     .commit();
         }
     }
@@ -47,7 +52,7 @@ public class ExpensesActivity extends AppCompatActivity {
     protected void insertRegister() {
         ContentValues values = new ContentValues();
         //Variables que formatean y devuelven la fecha actual en formato Hora:Minuto:Segundos Dia-Mes-Año
-        SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss dd-MM-yyyy", Locale.getDefault());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault());
         Date date = new Date();
         String fecha = dateFormat.format(date);
 

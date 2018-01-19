@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.grupo4.esteban.miscuentas">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,14 +20,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingsActivity"></activity>
-        <activity android:name=".MyAccountsActivity"></activity>
-        <activity android:name=".ExpensesActivity"></activity>
-        <activity android:name=".DepositsActivity"></activity>
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".MyAccountsActivity" />
+        <activity android:name=".ExpensesActivity" />
+        <activity android:name=".DepositsActivity" />
 
         <provider
-            android:name="com.grupo4.esteban.miscuentas.MyAccountsProvider"
-            android:authorities="com.grupo4.esteban.miscuentas.MyAccountsProvider" />
+            android:name=".MyAccountsProvider"
+            android:authorities="com.grupo4.esteban.miscuentas.MyAccountsProvider"/>
+
+        <receiver android:name=".MiWidget" android:label="Mi Primer Widget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.grupo4.esteban.miscuentas.ACTUALIZAR_WIDGET"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/miwidget_wprovider" />
+        </receiver>
+        <activity android:name=".WidgetConfig">
+            <intent-filter>
+                <action android:name="android.apwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

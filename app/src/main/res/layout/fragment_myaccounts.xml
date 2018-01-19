@@ -41,12 +41,11 @@
         android:id="@+id/list_item_text_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_alignBaseline="@+id/textViewValue"
         android:layout_alignBottom="@+id/textViewValue"
         android:layout_toEndOf="@+id/textViewValue"
         android:layout_toRightOf="@+id/textViewValue"
-        android:text="Cantidad."
+        android:text="@string/value"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView

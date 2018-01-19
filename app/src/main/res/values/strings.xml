@@ -5,8 +5,7 @@
     <string name="button_deposits">Enter Deposits</string>
     <string name="action_settings">Settings</string>
     <string name="total_expenses">Total Expenses</string>
-    <string name="login">Login</string>
-    <string name="purge">Delete All MyAccounts</string>
+    <string name="purge">Delete My Accounts</string>
     <string name="button_register_spend">Register Spend</string>
     <string name="button_register_deposit">Register Deposit</string>
     <string name="spend">Spend</string>
@@ -24,4 +23,8 @@
     <string name="titleAllExpenses">Total Expenses</string>
     <string name="concept">Concept:</string>
     <string name="value">Quantity:</string>
+    <string name="widgetTitle">Last Movements</string>
+    <string name="createdBy">Developed by Esteban Izquierdo</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

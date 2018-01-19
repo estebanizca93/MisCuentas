@@ -5,8 +5,7 @@
     <string name="button_deposits">Introducir Ingresos</string>
     <string name="action_settings">Configuración</string>
     <string name="total_expenses">Gastos Totales</string>
-    <string name="login">Login</string>
-    <string name="purge">Borrar Todas MisCuentas</string>
+    <string name="purge">Borrar Mis Cuentas</string>
     <string name="button_register_spend">Registrar Gasto</string>
     <string name="button_register_deposit">Registrar Ingreso</string>
     <string name="spend">Gasto</string>
@@ -19,9 +18,11 @@
     <string name="summaryLimit">Escriba el límite de gastos para que se le notifique en caso de sobrepasarlo.(Por defecto 10.000)</string>
     <string name="titleLimit">Límite de gastos</string>
     <string name="limitExceeded">Límite de gastos sobrepasado</string>
-    <string name="dbEraseConfirmMSG">¿Esta seguro de que deseea eliminar los datos?</string>
+    <string name="dbEraseConfirmMSG">¿Esta seguro de que desea eliminar los datos?</string>
     <string name="dbEraseConfirmTitle">Eliminar Mis Cuentas</string>
     <string name="titleAllExpenses">Gastos Totales</string>
     <string name="concept">Concepto:</string>
     <string name="value">Cantidad:</string>
+    <string name="widgetTitle">Últimos Movimientos</string>
+    <string name="createdBy">Desarrollada por Esteban Izquierdo</string>
     </resources>

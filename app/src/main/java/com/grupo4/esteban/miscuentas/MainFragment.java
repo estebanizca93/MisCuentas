@@ -19,9 +19,9 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     Button buttonDeposit;
 
     //Se crea la vista inflando el fragment
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
-
         //Vistas
         buttonMyAccounts = (Button) view.findViewById(R.id.ButtonMyAccounts);
         buttonSpend = (Button) view.findViewById(R.id.ButtonExpenses);

@@ -22,10 +22,12 @@
     <string name="dbEraseConfirmTitle">Delete My Accounts</string>
     <string name="titleAllExpenses">Total Expenses</string>
     <string name="concept">Concept:</string>
-    <string name="value">Quantity:</string>
+    <string name="value">Amount:</string>
     <string name="widgetTitle">Last Movements</string>
     <string name="createdBy">Developed by Esteban Izquierdo</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="emptyList">No data found...</string>
+    <string name="fieldsEmpty">Please, complete all fields</string>
+    <string name="valueError">Incorrect amount</string>
 </resources>

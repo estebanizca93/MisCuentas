@@ -26,4 +26,6 @@
     <string name="widgetTitle">Últimos Movimientos</string>
     <string name="createdBy">Desarrollada por Esteban Izquierdo</string>
     <string name="emptyList">No hay datos...</string>
+    <string name="fieldsEmpty">Por favor, complete todos los campos</string>
+    <string name="valueError">Cantidad incorrecta</string>
     </resources>
